@@ -5,5 +5,5 @@ module.exports = async function (content, options = {}) {
     data: content,
     ...options,
   });
-  return css;
+  return css.toString();
 };
