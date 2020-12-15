@@ -1,11 +1,14 @@
-const path = require('path');
+const path = require("path");
 const sass = require("sass");
 
 module.exports = async function (content, options = {}) {
-  const dir = path.resolve(this.config.dir.input, path.dirname(this.resourcePath))
+  const includePaths = [
+    path.resolve(this.config.dir.input, path.dirname(this.resourcePath)),
+    path.resolve("node_modules"),
+  ];
   const { css } = sass.renderSync({
     data: content,
-    includePaths: [dir],
+    includePaths,
     ...options,
   });
   return css.toString();
