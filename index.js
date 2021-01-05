@@ -5,7 +5,8 @@ module.exports = function (content, options) {
   const includePaths = [
     path.resolve(this.config.inputDir, path.dirname(this.resourcePath)),
     path.resolve("node_modules"),
-    ...options.includePaths,
+    // Extend includePaths with options.includePaths
+    ...((options && options.includePaths) || []),
   ];
   const { css } = sass.renderSync({
     data: content,
