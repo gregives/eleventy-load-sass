@@ -30,7 +30,7 @@ module.exports = function (eleventyConfig) {
         ],
       },
       {
-        test: /\.css$/,
+        test: /\.scss$/,
         loaders: [
           {
             loader: require("eleventy-load-sass"),
